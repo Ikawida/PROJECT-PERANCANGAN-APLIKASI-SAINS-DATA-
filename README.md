@@ -1,7 +1,7 @@
 # PROJECT PERANCANGAN APLIKASI SAINS DATA (APLIKASI PREDIKSI OBESITAS)
 <pre>
 Kelas: S1SD-04-01
-Nama Kelompok:
+Nama Anggota Kelompok:
 1. Ika Wida Nuragustin (2311110001)
 2. Chelsisdeo A.P Sanenek (2311110016)
 3. Indy Aurellia Az Zahra (2311110020)
