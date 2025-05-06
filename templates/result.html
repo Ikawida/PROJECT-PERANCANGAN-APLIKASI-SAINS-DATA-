@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result - Neobrutalist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-amber-300 font-mono text-black flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 md:p-8;
+            }
+            /* Custom scrollbar for webkit browsers - subtle neobrutalist touch */
+            ::-webkit-scrollbar {
+                @apply w-3 h-3;
+            }
+            ::-webkit-scrollbar-track {
+                @apply bg-amber-200 border border-black;
+            }
+            ::-webkit-scrollbar-thumb {
+                @apply bg-pink-500 border-2 border-black hover:bg-pink-600;
+            }
+        }
+        .neobrutalist-card {
+            @apply bg-white border-4 border-black shadow-[8px_8px_0px_#000000] p-6 sm:p-8 md:p-10 w-full max-w-md text-center; /* Adjusted max-width */
+        }
+        .neobrutalist-button-link { /* Renamed for clarity if styles diverge from form button */
+            @apply inline-block bg-sky-500 text-white border-2 border-black font-bold text-lg px-8 py-3 transition-all duration-150 ease-in-out;
+        }
+        .neobrutalist-button-link:hover {
+            @apply bg-sky-600 shadow-[-3px_-3px_0px_#000000_inset];
+        }
+        .neobrutalist-button-link:active {
+            @apply bg-sky-700 shadow-[-6px_-6px_0px_#000000_inset];
+        }
+        .prediction-text {
+            @apply text-xl sm:text-2xl mb-8 text-neutral-800 leading-relaxed;
+        }
+        .prediction-value {
+            @apply bg-lime-300 text-black px-3 py-1 border-2 border-black inline-block shadow-[3px_3px_0px_#000000];
+        }
+    </style>
+</head>
+<body>
+    <div class="neobrutalist-card">
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-8 p-3 border-b-4 border-black">
+            Prediction Result
+        </h1>
+        <p class="prediction-text">
+            The predicted obesity category is:
+            <strong class="prediction-value">{{ prediction }}</strong>
+        </p>
+        <a href="/" class="neobrutalist-button-link mt-6">Go back</a>
+    </div>
+</body>
+</html>
