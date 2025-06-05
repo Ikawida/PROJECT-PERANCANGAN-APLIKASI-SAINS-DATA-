@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Obesity Prediction - Cute Style</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet" />
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        font-family: 'Comic Neue', cursive;
+        @apply bg-pink-100 flex flex-col items-center justify-center min-h-screen p-6;
+      }
+      input[type="number"], select {
+        @apply w-full p-3 border-2 border-pink-300 bg-white text-lg focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400 placeholder-pink-400;
+        appearance: none;
+      }
+      select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239C27B0'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 1.5em 1.5em;
+      }
+    }
+
+    .cute-card {
+      @apply bg-white border-4 border-pink-300 shadow-[6px_6px_0px_#EC4899] p-8 w-full max-w-2xl rounded-3xl;
+    }
+    .cute-button {
+      @apply bg-pink-400 text-white border-2 border-pink-300 font-bold text-xl px-8 py-4 w-full rounded-xl transition-all duration-150 ease-in-out;
+    }
+    .cute-button:hover {
+      @apply bg-pink-500 shadow-md;
+    }
+    .cute-button:active {
+      @apply bg-pink-600;
+    }
+    .cute-label {
+      @apply block text-lg font-semibold mb-2 text-pink-700;
+    }
+    .cute-input-group {
+      @apply mb-6;
+    }
+    .cute-small-text {
+      @apply block text-sm text-pink-500 mt-1 mb-3;
+    }
+  </style>
+</head>
+<body>
+  <div class="cute-card">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-8 text-pink-700">💖 Obesity Predictor 💖</h1>
+    <form action="/predict" method="post">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6">
+        <div class="cute-input-group">
+          <label for="age" class="cute-label">Age:</label>
+          <input type="number" id="age" name="age" step="any" required placeholder="e.g., 30"/>
+        </div>
+
+        <div class="cute-input-group">
+          <label for="gender" class="cute-label">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select one!</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6">
+        <div class="cute-input-group">
+          <label for="height" class="cute-label">Height (cm):</label>
+          <input type="number" id="height" name="height" step="any" required placeholder="e.g., 175"/>
+        </div>
+
+        <div class="cute-input-group">
+          <label for="weight" class="cute-label">Weight (kg):</label>
+          <input type="number" id="weight" name="weight" step="any" required placeholder="e.g., 70"/>
+        </div>
+      </div>
+
+      <div class="cute-input-group">
+        <label for="bmi" class="cute-label">BMI (auto-calculated):</label>
+        <input type="number" id="bmi" name="bmi" step="any" readonly required class="bg-pink-50 border-pink-300 cursor-not-allowed" placeholder="Calculated BMI"/>
+      </div>
+
+      <div class="cute-input-group">
+        <label for="physical_activity" class="cute-label">Physical Activity Level:</label>
+        <input type="number" id="physical_activity" name="physical_activity" required placeholder="1 - 4"/>
+        <small class="cute-small-text">🌈 1: Sedentary, 2: Light, 3: Moderate, 4: Very Active</small>
+      </div>
+
+      <button type="submit" class="cute-button mt-4">✨ Predict Obesity ✨</button>
+    </form>
+  </div>
+
+  <script>
+    function calculateBMI() {
+      const heightInput = document.getElementById('height');
+      const weightInput = document.getElementById('weight');
+      const bmiInput = document.getElementById('bmi');
+
+      const heightCm = parseFloat(heightInput.value);
+      const weightKg = parseFloat(weightInput.value);
+
+      if (heightCm > 0 && weightKg > 0) {
+        const heightM = heightCm / 100;
+        const bmi = (weightKg / (heightM * heightM)).toFixed(2);
+        bmiInput.value = bmi;
+      } else {
+        bmiInput.value = '';
+      }
+    }
+
+    document.getElementById('height').addEventListener('input', calculateBMI);
+    document.getElementById('weight').addEventListener('input', calculateBMI);
+  </script>
+</body>
+</html>
