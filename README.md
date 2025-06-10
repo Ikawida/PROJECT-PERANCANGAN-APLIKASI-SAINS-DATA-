@@ -1,130 +1,131 @@
-# Obesity Prediction Pipeline
+# Pipeline Prediksi Obesitas
 
-README ini menyediakan panduan langkah demi langkah untuk membangun Obesity Prediction Pipeline, termasuk pelatihan model dan deployment. Ikuti instruksi di bawah ini untuk menyiapkan proyek.
+README ini menyediakan panduan langkah demi langkah untuk membangun Pipeline Prediksi Obesitas, termasuk pelatihan model dan deployment. Ikuti instruksi di bawah ini untuk menyiapkan proyek.
 
 ---
 
-## Model Training
+## Pelatihan Model
 
-### 1. Prerequisites
-# Ensure you have the following installed:
+### 1. Prasyarat
+# Pastikan Anda telah menginstal:
 - Python 3.8+
-- Required Python libraries: `pandas`, `scikit-learn`, `joblib`, `numpy`
+- Library Python yang diperlukan: `pandas`, `scikit-learn`, `joblib`, `numpy`
 
-Install the dependencies using:
+Instal dependensi dengan perintah:
 ```bash
 pip install pandas scikit-learn joblib numpy
 ```
 
 ### 2. Dataset
-Place the dataset file `obesity_data.csv` in the project root directory. Ensure the dataset contains the following columns:
+Tempatkan file dataset `obesity_data.csv` di direktori root proyek. Pastikan dataset berisi kolom-kolom berikut:
 - `Age`
 - `Gender`
 - `Height`
 - `Weight`
 - `BMI`
 - `PhysicalActivityLevel`
-- `ObesityCategory` (target variable)
+- `ObesityCategory` (variabel target)
 
-### 3. Training the Model
-Run the `obesity_model_pipeline.py` script to train the model:
+### 3. Melatih Model
+Jalankan skrip `obesity_model_pipeline.py` untuk melatih model:
 ```bash
 python obesity_model_pipeline.py
 ```
 
-This script performs the following steps:
-1. **Loads the dataset**: Reads the `obesity_data.csv` file into memory for processing.
-2. **Preprocesses the data**: This step includes scaling numerical features (e.g., height, weight) and encoding categorical features (e.g., gender). Preprocessing ensures that the data is in a format suitable for machine learning algorithms.
-3. **Splits the data**: Divides the dataset into training and testing sets to evaluate the model's performance on unseen data.
-4. **Trains a logistic regression model**: Fits a logistic regression model to the training data to predict obesity categories.
-5. **Evaluates the model**: Tests the model on the test set to measure its accuracy and performance.
-6. **Saves the trained model and preprocessing artifacts**: The following files are saved for deployment:
-   - `obesity_model.pkl`: This file contains the trained logistic regression model. It is used to make predictions during deployment.
-   - `obesity_preprocessor.pkl`: This file contains the preprocessing pipeline, which ensures that input data during deployment is transformed in the same way as during training.
-   - `obesity_target_encoder.pkl`: This file contains the label encoder for the target variable (`ObesityCategory`). It maps the predicted numerical labels back to their original categorical values (e.g., "Normal", "Overweight").
+Skrip ini melakukan langkah-langkah berikut:
+1. **Memuat dataset**: Membaca file `obesity_data.csv` ke dalam memori untuk diproses.
+2. **Pra-pemrosesan data**: Termasuk penskalaan fitur numerik (misalnya tinggi, berat) dan encoding fitur kategorikal (misalnya gender). Pra-pemrosesan memastikan data dalam format yang cocok untuk algoritma machine learning.
+3. **Membagi data**: Membagi dataset menjadi data pelatihan dan pengujian untuk mengevaluasi performa model terhadap data yang belum pernah dilihat.
+4. **Melatih model regresi logistik**: Melatih model regresi logistik pada data pelatihan untuk memprediksi kategori obesitas.
+5. **Evaluasi model**: Menguji model pada data pengujian untuk mengukur akurasi dan kinerjanya.
+6. **Menyimpan model dan artefak pra-pemrosesan**: File berikut disimpan untuk kebutuhan deployment:
+   - `obesity_model.pkl`: Model regresi logistik yang telah dilatih. Digunakan untuk prediksi saat deployment.
+   - `obesity_preprocessor.pkl`: Pipeline pra-pemrosesan yang menjamin data input saat deployment diproses sama seperti saat pelatihan.
+   - `obesity_target_encoder.pkl`: Label encoder untuk variabel target (`ObesityCategory`). Mengonversi label numerik hasil prediksi kembali ke kategori aslinya (misalnya "Normal", "Overweight").
 
-### 4. Outputs
-After running the script, the following files will be generated:
-- `obesity_model.pkl`: Trained model.
-- `obesity_preprocessor.pkl`: Preprocessing pipeline.
-- `obesity_target_encoder.pkl`: Label encoder for the target variable.
+### 4. Output
+Setelah menjalankan skrip, file-file berikut akan dihasilkan:
+- `obesity_model.pkl`: Model yang telah dilatih.
+- `obesity_preprocessor.pkl`: Pipeline pra-pemrosesan.
+- `obesity_target_encoder.pkl`: Label encoder untuk variabel target.
 
-These files are essential for deployment as they ensure consistency between training and prediction phases.
+File-file ini penting untuk deployment karena menjamin konsistensi antara fase pelatihan dan prediksi.
 
-#### Examples of Usage:
+#### Contoh Penggunaan:
 - **`obesity_model.pkl`**:
-  This file is used to make predictions. For example:
+  File ini digunakan untuk melakukan prediksi. Contoh:
   ```python
   import joblib
   model = joblib.load('obesity_model.pkl')
-  prediction = model.predict([[25, 1.75, 70, 2]])  # Example input: Age, Height, Weight, Physical Activity Level
-  print(prediction)  # Outputs the predicted obesity category as a numerical label
+  prediction = model.predict([[25, 1.75, 70, 2]])  # Contoh input: Usia, Tinggi, Berat, Tingkat Aktivitas Fisik
+  print(prediction)  # Output berupa label numerik kategori obesitas
   ```
 
 - **`obesity_preprocessor.pkl`**:
-  This file ensures that input data is preprocessed in the same way as during training. For example:
+  File ini menjamin data input diproses seperti saat pelatihan. Contoh:
   ```python
   preprocessor = joblib.load('obesity_preprocessor.pkl')
-  processed_data = preprocessor.transform([[25, 'Male', 1.75, 70, 2]])  # Example input: Age, Gender, Height, Weight, Physical Activity Level
+  processed_data = preprocessor.transform([[25, 'Male', 1.75, 70, 2]])  # Contoh input: Usia, Gender, Tinggi, Berat, Aktivitas Fisik
   ```
 
 - **`obesity_target_encoder.pkl`**:
-  This file maps numerical predictions back to their original categorical labels. For example:
+  File ini mengubah prediksi numerik kembali ke label kategori aslinya. Contoh:
   ```python
   target_encoder = joblib.load('obesity_target_encoder.pkl')
-  category = target_encoder.inverse_transform([2])  # Example input: Numerical label
-  print(category)  # Outputs the corresponding category, e.g., "Overweight"
+  category = target_encoder.inverse_transform([2])  # Contoh input: Label numerik
+  print(category)  # Output kategori yang sesuai, misalnya "Overweight"
   ```
 
 ---
 
-## Model Deployment
+## Deployment Model
 
-### 1. Prerequisites
-Ensure you have the following installed:
+### 1. Prasyarat
+Pastikan Anda telah menginstal:
 - Flask
 
-Install Flask using:
+Instal Flask dengan perintah:
 ```bash
 pip install flask
 ```
 
-### 2. Application Setup
-The deployment is handled by the `app.py` script. This script uses Flask to create a web application for predicting obesity categories.
+### 2. Pengaturan Aplikasi
+Deployment dilakukan melalui skrip `app.py`. Skrip ini menggunakan Flask untuk membuat aplikasi web yang memprediksi kategori obesitas.
 
-### 3. Running the Application
-Start the Flask application by running:
+### 3. Menjalankan Aplikasi
+Mulai aplikasi Flask dengan menjalankan:
 ```bash
 python app.py
 ```
 
-The application will be accessible at `http://127.0.0.1:5000/`.
+Aplikasi akan dapat diakses melalui `http://127.0.0.1:5000/`.
 
-### 4. Application Features
-- **Home Page**: A form to input user data (e.g., Age, Gender, Height, Weight, BMI, Physical Activity Level).
-- **Prediction Endpoint**: Submits the form data to the `/predict` endpoint, which returns the predicted obesity category and probabilities.
+### 4. Fitur Aplikasi
+- **Halaman Utama**: Formulir untuk menginput data pengguna (misalnya: Usia, Gender, Tinggi, Berat, BMI, Tingkat Aktivitas Fisik).
+- **Endpoint Prediksi**: Mengirim data formulir ke endpoint `/predict`, yang akan mengembalikan kategori obesitas yang diprediksi beserta probabilitasnya.
 
 ---
 
 ## Diagram
-Below is a high-level diagram of the pipeline:
+Berikut adalah diagram tingkat tinggi dari pipeline:
 
 ```plaintext
 +-------------------+       +-------------------+       +-------------------+
-|   Data Loading    | --->  |   Preprocessing   | --->  |   Model Training  |
+|   Pemuatan Data   | --->  |   Pra-pemrosesan  | --->  |   Pelatihan Model |
 +-------------------+       +-------------------+       +-------------------+
 
 +-------------------+       +-------------------+
-|   Flask Backend   | <-->  |   Trained Model   |
+|  Backend Flask    | <-->  |  Model Terlatih   |
 +-------------------+       +-------------------+
 ```
 
 ---
 
-## Notes
-- Ensure the dataset is clean and free of missing values before training.
-- Modify the `app.py` script to customize the web application as needed.
+## Catatan
+- Pastikan dataset bersih dan bebas dari nilai yang hilang sebelum melatih model.
+- Modifikasi skrip `app.py` sesuai kebutuhan untuk menyesuaikan aplikasi web.
 
 ---
 
-For any issues or questions, feel free to contact the project maintainer.
+Jika ada pertanyaan atau masalah, silakan hubungi pengelola proyek.
+EOF
