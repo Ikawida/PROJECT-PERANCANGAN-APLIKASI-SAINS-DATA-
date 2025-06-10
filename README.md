@@ -1,6 +1,6 @@
 # Obesity Prediction Pipeline
 
-This README provides a step-by-step guide to build the Obesity Prediction Pipeline, including model training and deployment. Follow the instructions below to set up the project.
+README ini menyediakan panduan langkah demi langkah untuk membangun Obesity Prediction Pipeline, termasuk pelatihan model dan deployment. Ikuti instruksi di bawah ini untuk menyiapkan proyek.
 
 ---
 
