@@ -1,6 +1,17 @@
-# Pipeline Prediksi Obesitas
+#TUGAS-BESAR-PERANCANGAN-APLIKASI-SAINS-DATA
 
-README ini menyediakan panduan langkah demi langkah untuk membangun Pipeline Prediksi Obesitas, termasuk pelatihan model dan deployment. Ikuti instruksi di bawah ini untuk menyiapkan proyek.
+<PRE>
+   Nama Anggota Kelompok:
+   1. Ika Wida Nuragustin (2311110001)
+   2. Chelsisdeo A.P Sanenek (2311110016)
+   3. Indy Aurellia Az Zhara (2311110020)
+   4. Dill Thafa Jausha (2311110048)
+</PRE>
+
+---
+
+#Deskripsi Aplikasi
+Website ini adalah aplikasi berbasis web yang dikembangkan menggunakan Flask untuk memprediksi kategori obesitas seseorang berdasarkan data pribadi dan gaya hidup. Model machine learning yang digunakan adalah Logistic Regression, dilatih dengan preprocessing menggunakan Pipeline Scikit-learn.
 
 ---
 
