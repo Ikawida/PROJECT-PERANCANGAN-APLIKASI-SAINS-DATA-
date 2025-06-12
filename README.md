@@ -27,9 +27,9 @@ Tempatkan file dataset `obesity_data.csv` di direktori root proyek. Pastikan dat
 - `ObesityCategory` (variabel target)
 
 ### 3. Melatih Model
-Jalankan skrip `obesity_model_pipeline.py` untuk melatih model:
+Jalankan skrip `obesity_model_handler.py` untuk melatih model:
 ```bash
-python obesity_model_pipeline.py
+python obesity_model_handler.py
 ```
 
 Skrip ini melakukan langkah-langkah berikut:
@@ -41,14 +41,12 @@ Skrip ini melakukan langkah-langkah berikut:
 6. **Menyimpan model dan artefak pra-pemrosesan**: File berikut disimpan untuk kebutuhan deployment:
    - `obesity_model.pkl`: Model regresi logistik yang telah dilatih. Digunakan untuk prediksi saat deployment.
    - `obesity_preprocessor.pkl`: Pipeline pra-pemrosesan yang menjamin data input saat deployment diproses sama seperti saat pelatihan.
-   - `obesity_target_encoder.pkl`: Label encoder untuk variabel target (`ObesityCategory`). Mengonversi label numerik hasil prediksi kembali ke kategori aslinya (misalnya "Normal", "Overweight").
 
 ### 4. Output
 Setelah menjalankan skrip, file-file berikut akan dihasilkan:
 - `obesity_model.pkl`: Model yang telah dilatih.
 - `obesity_preprocessor.pkl`: Pipeline pra-pemrosesan.
-- `obesity_target_encoder.pkl`: Label encoder untuk variabel target.
-
+- 
 File-file ini penting untuk deployment karena menjamin konsistensi antara fase pelatihan dan prediksi.
 
 #### Contoh Penggunaan:
