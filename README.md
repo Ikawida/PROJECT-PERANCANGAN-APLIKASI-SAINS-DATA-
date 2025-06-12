@@ -1,4 +1,4 @@
-#TUGAS-BESAR-PERANCANGAN-APLIKASI-SAINS-DATA
+# TUGAS-BESAR-PERANCANGAN-APLIKASI-SAINS-DATA
 
 <PRE>
    Nama Anggota Kelompok:
@@ -10,8 +10,39 @@
 
 ---
 
-#Deskripsi Aplikasi
+# Deskripsi Aplikasi
+
 Website ini adalah aplikasi berbasis web yang dikembangkan menggunakan Flask untuk memprediksi kategori obesitas seseorang berdasarkan data pribadi dan gaya hidup. Model machine learning yang digunakan adalah Logistic Regression, dilatih dengan preprocessing menggunakan Pipeline Scikit-learn.
+
+*Fitur Utama:
+
+- Formulir Input Pengguna
+
+Pengguna mengisi data seperti umur, tinggi, berat, jenis kelamin, BMI, dan tingkat aktivitas fisik melalui halaman web.
+
+- Prediksi Langsung
+
+Setelah pengguna menekan tombol Submit, data dikirim ke server Flask, diproses oleh model machine learning, dan hasil prediksi kategori obesitas ditampilkan secara langsung.
+
+- Model Pipeline
+  
+Sistem menggunakan pipeline yang mencakup:
+
+-> Pra-pemrosesan data (scaling, encoding)
+
+-> Klasifikasi dengan Logistic Regression
+
+-> Label encoder untuk mengembalikan prediksi ke label aslinya
+
+-> Struktur Modular
+
+-> obesity_model_handler.py: untuk training dan penyimpanan model
+
+-> obesity_predictor.py: untuk prediksi data baru
+
+-> app.py: frontend dan routing Flask
+
+-> main.py: skrip utama untuk training dan demo prediksi
 
 ---
 
