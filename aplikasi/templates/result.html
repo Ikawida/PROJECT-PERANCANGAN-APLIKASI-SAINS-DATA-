@@ -1,58 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Metadata dan link font/style -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prediction Result - Cute Mode</title>
+
+  <!-- Import Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font lucu untuk nuansa "cute" -->
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet" />
+
+  <!-- Styling Tailwind khusus untuk halaman ini -->
   <style type="text/tailwindcss">
     @layer base {
       body {
+        /* Atur font dan tampilan body */
         font-family: 'Comic Neue', cursive;
         @apply bg-pink-100 text-black flex flex-col items-center justify-center min-h-screen p-6;
       }
     }
 
+    /* Kartu utama hasil prediksi */
     .cute-card {
       @apply bg-white border-4 border-pink-500 shadow-[6px_6px_0px_#ff69b4] p-8 w-full max-w-xl text-center rounded-lg;
     }
 
+    /* Judul besar di atas */
     .cute-title {
       @apply text-3xl sm:text-4xl font-extrabold text-pink-600 mb-6 border-b-2 border-pink-400 pb-2;
     }
 
+    /* Tampilan hasil prediksi */
     .cute-result {
       @apply text-xl sm:text-2xl mb-6 text-neutral-700 leading-relaxed;
     }
 
+    /* Nilai kategori yang diprediksi */
     .cute-value {
       @apply bg-pink-200 text-pink-900 px-4 py-1 border-2 border-pink-500 inline-block shadow-md rounded;
     }
 
+    /* Pesan tambahan tergantung hasil prediksi */
     .cute-message {
       @apply text-lg sm:text-xl text-fuchsia-600 mt-4;
     }
 
+    /* Tombol kembali */
     .cute-button {
       @apply inline-block mt-6 bg-pink-400 text-white border-2 border-pink-600 font-bold text-lg px-6 py-3 rounded transition hover:bg-pink-500 hover:shadow-inner active:bg-pink-600;
     }
   </style>
 </head>
 <body>
+  <!-- Kartu utama -->
   <div class="cute-card">
+    <!-- Judul -->
     <h1 class="cute-title">🎀 Prediction Result 🎀</h1>
 
+    <!-- Cek apakah prediksi adalah error -->
     {% if prediction.startswith('Terjadi error') %}
+      <!-- Tampilkan pesan error -->
       <p class="cute-result text-red-500 font-bold">
         {{ prediction }}
       </p>
     {% else %}
+      <!-- Tampilkan hasil prediksi -->
       <p class="cute-result">
         The predicted obesity category is:
         <span class="cute-value">{{ prediction }}</span>
       </p>
 
+      <!-- Tampilkan pesan tambahan berdasarkan kategori -->
       {% if "Underweight" in prediction %}
         <p class="cute-message"> You need more yummy fuel! Don’t forget to eat nutritious meals~ 💪🍚</p>
       {% elif "Normal" in prediction %}
@@ -64,6 +84,7 @@
       {% endif %}
     {% endif %}
 
+    <!-- Tombol kembali ke halaman form -->
     <a href="/" class="cute-button">← Back to Form</a>
   </div>
 </body>
