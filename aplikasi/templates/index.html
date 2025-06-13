@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta tag untuk encoding dan responsivitas -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <!-- Judul halaman -->
   <title>Obesity Prediction - Cute Style</title>
+   <!-- Memuat Tailwind CSS melalui CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font dari Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet" />
+ 
+  <!-- Gaya tambahan dengan Tailwind custom styling -->
   <style type="text/tailwindcss">
     @layer base {
       body {
         font-family: 'Comic Neue', cursive;
         @apply bg-pink-100 flex flex-col items-center justify-center min-h-screen p-6;
-      }
+      }    
       input[type="number"], select {
         @apply w-full p-3 border-2 border-pink-300 bg-white text-lg focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400 placeholder-pink-400;
         appearance: none;
