@@ -12,7 +12,12 @@
 
 # Deskripsi Aplikasi
 
-Website ini adalah aplikasi berbasis web yang dikembangkan menggunakan Flask untuk memprediksi kategori obesitas seseorang berdasarkan data pribadi dan gaya hidup. Model machine learning yang digunakan adalah Logistic Regression, dilatih dengan preprocessing menggunakan Pipeline Scikit-learn.
+Website ini adalah aplikasi berbasis web yang bertujuan untuk 
+memprediksi kategori obesitas seseorang berdasarkan data pribadi dan gaya 
+hidup. Prediksi berdasarkan beberapa fitur, yaitu Age, Gender, Height, 
+Weight, BMI, dan Physical Activity Level. Model machine learning yang 
+digunakan adalah Random Forest, dilatih dengan preprocessing 
+menggunakan Pipeline Scikit-learn.  
 
 *Fitur Utama:
 
