@@ -52,7 +52,17 @@ Sistem menggunakan pipeline yang mencakup:
 ---
 ## Alur Kerja Aplikasi
 
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/70041210c38c658ab8acf6c053beda4abd1c62fc/SCREENSHOOT/Kelas%20Diagram.png)
+![alt text](https://github.com/Ikawida/PROJECT-PERANCANGAN-APLIKASI-SAINS-DATA-/blob/6d5629cbc7c9d317531699403e4c9cd0240ee7a7/Alur%20kerja%20aplikasi.jpg)
+
+Pada Training Phase, data obesitas terlebih dahulu diproses melalui 
+tahap preprocessing, kemudian digunakan untuk melatih model (model 
+training). Setelah model dilatih, model dan label encoder disimpan ke 
+dalam file (obesity_model.pkl dan obesity_label_encoder.pkl). Selanjutnya, 
+pada Prediction Phase, pengguna memasukkan data yang akan disimpan 
+dalam bentuk dataframe, lalu diproses untuk prediksi menggunakan model 
+yang telah disimpan. Hasil prediksi kemudian ditampilkan kepada 
+pengguna melalui file HTML (result.html). Diagram ini menggambarkan 
+secara sistematis alur pembuatan dan pemanfaatan model prediksi obesitas. 
 
 ---
 
