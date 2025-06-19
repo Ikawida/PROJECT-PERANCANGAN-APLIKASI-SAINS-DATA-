@@ -52,7 +52,7 @@ Sistem menggunakan pipeline yang mencakup:
 ---
 ## Alur Kerja Aplikasi
 
-
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/70041210c38c658ab8acf6c053beda4abd1c62fc/SCREENSHOOT/Kelas%20Diagram.png)
 
 ---
 
