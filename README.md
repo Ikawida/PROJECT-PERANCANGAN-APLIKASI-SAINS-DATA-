@@ -50,11 +50,16 @@ Sistem menggunakan pipeline yang mencakup:
 -> main.py: skrip utama untuk training dan demo prediksi
 
 ---
+## Alur Kerja Aplikasi
+
+
+
+---
 
 ## Pelatihan Model
 
 ### 1. Prasyarat
-# Pastikan Anda telah menginstal:
+# Platform yang digunakan:
 - Python 3.8+
 - Library Python yang diperlukan: `pandas`, `scikit-learn`, `joblib`, `numpy`
 
@@ -170,7 +175,3 @@ Berikut adalah diagram tingkat tinggi dari pipeline:
 - Pastikan dataset bersih dan bebas dari nilai yang hilang sebelum melatih model.
 - Modifikasi skrip `app.py` sesuai kebutuhan untuk menyesuaikan aplikasi web.
 
----
-
-Jika ada pertanyaan atau masalah, silakan hubungi pengelola proyek.
-EOF
